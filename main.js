@@ -39,16 +39,16 @@ function playRound(userChoice, computerChoice) {
 function score(winner) {
   if (winner === "win") {
     userScore++;
-    return console.log(
+    console.log(
       `The score is Player: ${userScore} vs Computer ${computerScore}`
     );
   } else if (winner === "lose") {
     computerScore++;
-    return console.log(
+    console.log(
       `The score is Player: ${userScore} vs Computer ${computerScore}`
     );
   } else {
-    return console.log(
+    console.log(
       `The score is Player: ${userScore} vs Computer ${computerScore}`
     );
   }
@@ -56,6 +56,7 @@ function score(winner) {
 // Selecting user choice.
 // prompt user to input choice.
 // make sure choice is validated (cant chose anything but RPS).
+// loop 5 times.
 function game() {
   for (let i = 0; i < 5; i++) {
     const userChoice = prompt("Your Choices... Rock, Paper, Scissors");
@@ -64,6 +65,20 @@ function game() {
     console.log(`You chose ${userChoice}`);
     console.log(`Computer chose ${computerChoice}`);
     console.log(score(playRound(userChoice, computerChoice)));
+  }
+  // print final score outcome to user at end of rounds(loop).
+  if (userScore > computerScore) {
+    console.log(
+      `Well done you WON! Player Score:${userScore} - Computer Score: ${computerScore}`
+    );
+  } else if (userScore < computerScore) {
+    console.log(
+      `Oh-No You Lost! Player Score:${userScore} - Computer Score: ${computerScore}`
+    );
+  } else {
+    console.log(
+      `It\'s a DRAW! Player Score:${userScore} - Computer Score: ${computerScore}`
+    );
   }
 }
 
