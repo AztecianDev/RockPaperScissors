@@ -1,5 +1,5 @@
-const userScore = 0;
-const computerScore = 0;
+let userScore = 0;
+let computerScore = 0;
 
 // Select Computer choice.
 // store choice in an array.
@@ -15,37 +15,34 @@ function getComputerChoice() {
 //Round Function.
 // Decide who wins by using switch statment.
 function playRound(userChoice, computerChoice) {
-  switch (userChoice + computerChoice) {
-    case ("rock", "scissors"):
-    case ("paper", "rock"):
-    case ("scissors", "paper"):
-      console.log(`You Win! ${userChoice} beats ${computerChoice}`);
-      win(userChoice, computerChoice);
-      break;
-
-    case ("scissors", "rock"):
-    case ("rock", "paper"):
-    case ("paper", "scissors"):
-      console.log(`You Lost! ${userChoice} dont beat ${computerChoice}`);
-      lose(userChoice, computerChoice);
-      break;
-
-    case ("rock", "rock"):
-    case ("paper", "paper"):
-    case ("scissors", "scissors"):
-      console.log(`You both Tie! ${userChoice}  ${computerChoice}`);
-      draw(userChoice, computerChoice);
-      break;
+  if (userChoice === computerChoice) {
+    console.log(
+      `It\'s a Tie! You chose ${userChoice} and Computer chose ${computerChoice} `
+    );
+  } else if (
+    (userChoice === "rock" && computerChoice === "scissors") ||
+    (userChoice === "paper" && computerChoice === "rock") ||
+    (userChoice === "scissors" && computerChoice === "paper")
+  ) {
+    console.log(`You Win! ${userChoice} beats ${computerChoice}`);
+    return "win";
+  } else if (
+    (userChoice === "scissors" && computerChoice === "rock") ||
+    (userChoice === "rock" && computerChoice === "paper") ||
+    (userChoice === "paper" && computerChoice === "scissors")
+  ) {
+    console.log(`You Lose! ${userChoice} lost to ${computerChoice}`);
+    return "lose";
   }
 }
-
+//score for player and computer.
 function score(winner) {
-  if (winner === win) {
+  if (winner === "win") {
     userScore++;
     return console.log(
       `The score is Player: ${userScore} vs Computer ${computerScore}`
     );
-  } else if (winner === lose) {
+  } else if (winner === "lose") {
     computerScore++;
     return console.log(
       `The score is Player: ${userScore} vs Computer ${computerScore}`
