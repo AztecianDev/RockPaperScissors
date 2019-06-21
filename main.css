@@ -68,3 +68,14 @@ body {
 .choice:hover {
     color: #00a6f9;
 }
+
+.result>p {
+    font-size: 2rem;
+    text-align: center;
+}
+
+h2 {
+    margin: 1rem;
+    text-align: center;
+    padding: 0.4rem 1.3rem;
+}
